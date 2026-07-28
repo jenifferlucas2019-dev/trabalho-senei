@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    
+    <link rel="stylesheet" href="style.css">
+    <title>segurança do trabalho</title>
+    <img id="img-principal" src="img/segurança.png"/>
+
+</head>
+<body>
+    <h1>segurança do trabalho</h1>
+
+    <div id="form">
+        <div class="container-inputs">
+            <label for="input-nome">nome:</label>
+            <input id="input-nome" type="text">
+        </div>
+        <div class="container-inputs">
+            <label for="">setor:</label>
+            <input id="input-setor" type="text">
+        </div>
+        <div class="container-inputs">
+            <label for="">função:</label>
+            <input id="input-funcao" type="text">
+        </div>
+        <div class="container-inputs">
+            <label for="">data:</label>
+            <input id="input-data" type="text">
+        </div>
+        <div class="container-inputs" id="div-id">
+            <label for="">validade</label>
+            <input id="input-validade" type="number">
+        </div>
+
+        <button onclick="cadastrarfuncionario()">cadastrar funcionario</button>
+        <button onclick="salvarfuncionario()">💾</button>
+        <button onclick="excluirfuncionario()">🗑️</button>
+
+    </div>
+    <!-- <dialog id="formulario">
+
+    </dialog> -->
+
+
+  
+    <div id="painel-botoes">
+        <button onclick="mostraformulario()"></button>
+       
+     
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

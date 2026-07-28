@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Formulário */
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  color: #2e7d32;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Botões */
+.button-group, .actions-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-salvar {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.btn-limpar {
+  background-color: #757575;
+  color: white;
+}
+
+.btn-teste {
+  background-color: #1565c0;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+}
+
+/* Imagem Principal (caso utilize) */
+#img-principal {
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+/* Estilo dos Cards de Funcionário */
+.list-container {
+  margin-top: 20px;
+}
+
+.list-container h2 {
+  margin-bottom: 15px;
+  color: #2e7d32;
+}
+
+.card-funcionario {
+  background: white;
+  padding: 15px;
+  border-left: 5px solid #2e7d32;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card-funcionario p {
+  margin-bottom: 6px;
+}
+
+.card-funcionario button {
+  margin-right: 8px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.card-funcionario button:nth-of-type(1) {
+  background-color: #f57c00; /* Botão Editar (Laranja) */
+  color: white;
+}
+
+.card-funcionario button:nth-of-type(2) {
+  background-color: #d32f2f; /* Botão Excluir (Vermelho) */
+  color: white;
+}

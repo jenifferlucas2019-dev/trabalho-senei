@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Funcionários (CRUD)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Sistema de Cadastro de Funcionários</h1>
+  </header>
+
+  <main>
+    <section class="form-container">
+      <h2>Cadastrar / Editar Funcionário</h2>
+      <form id="form-funcionario" onsubmit="event.preventDefault(); cadastrarFuncionario();">
+        
+        <input type="hidden" id="input-id">
+
+        <div class="input-group">
+          <label for="input-nome">Nome:</label>
+          <input type="text" id="input-nome" placeholder="Digite o nome" required>
+        </div>
+
+        <div class="input-group">
+          <label for="input-setor">Setor:</label>
+          <input type="text" id="input-setor" placeholder="Ex: TI, RH, Financeiro" required>
+        </div>
+
+        <div class="input-group">
+          <label for="input-funcao">Função:</label>
+          <input type="text" id="input-funcao" placeholder="Ex: Desenvolvedor" required>
+        </div>
+
+        <div class="input-group">
+          <label for="input-data">Data de Admissão:</label>
+          <input type="date" id="input-data" required>
+        </div>
+
+        <div class="input-group">
+          <label for="input-validade">Validade do Exame / Contrato:</label>
+          <input type="date" id="input-validade" required>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-salvar">Salvar Funcionário</button>
+          <button type="button" onclick="limparFormulario()" class="btn-limpar">Limpar Formulário</button>
+        </div>
+
+      </form>
+    </section>
+
+    <section class="actions-container">
+      <button type="button" onclick="gerardadosDeTeste()" class="btn-teste">
+        🧪 Inserir 5 Funcionários de Teste
+      </button>
+    </section>
+
+    <hr>
+
+    <section class="list-container">
+      <h2>Lista de Funcionários</h2>
+      <div id="painel-funcionario">
+        </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

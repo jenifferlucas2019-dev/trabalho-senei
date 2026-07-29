@@ -1,60 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-</html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-    
     <link rel="stylesheet" href="style.css">
-    <title>segurança do trabalho</title>
-    <img id="img-principal" src="img/segurança.png"/>
-
+    <title>Segurança do Trabalho</title>
 </head>
 <body>
-    <h1>segurança do trabalho</h1>
+    <img id="img-principal" src="img/segurança.png" alt="Segurança do Trabalho"/>
+    <h1>Segurança do Trabalho</h1>
 
     <div id="form">
         <div class="container-inputs">
-            <label for="input-nome">nome:</label>
+            <label for="input-nome">Nome:</label>
             <input id="input-nome" type="text">
         </div>
         <div class="container-inputs">
-            <label for="">setor:</label>
+            <label for="input-setor">Setor:</label>
             <input id="input-setor" type="text">
         </div>
         <div class="container-inputs">
-            <label for="">função:</label>
+            <label for="input-funcao">Função:</label>
             <input id="input-funcao" type="text">
         </div>
         <div class="container-inputs">
-            <label for="">data:</label>
-            <input id="input-data" type="text">
+            <label for="input-data">Data:</label>
+            <input id="input-data" type="date">
         </div>
         <div class="container-inputs" id="div-id">
-            <label for="">validade</label>
-            <input id="input-validade" type="number">
+            <label for="input-validade">Validade:</label>
+            <input id="input-validade" type="text">
         </div>
 
-        <button onclick="cadastrarfuncionario()">cadastrar funcionario</button>
-        <button onclick="salvarfuncionario()">💾</button>
-        <button onclick="excluirfuncionario()">🗑️</button>
-
+        <button onclick="cadastrarFuncionario()">Cadastrar Funcionário</button>
+        <button onclick="procurarFuncionario()">🔍 Buscar</button>
+        <button onclick="excluirFuncionario()">🗑️ Excluir</button>
     </div>
-    <!-- <dialog id="formulario">
 
-    </dialog> -->
+    <div id="painel-funcionario"></div>
 
-
-  
-    <div id="painel-botoes">
-        <button onclick="mostraformulario()"></button>
-       
-     
-
-    </div>
     <script src="script.js"></script>
 </body>
 </html>
-

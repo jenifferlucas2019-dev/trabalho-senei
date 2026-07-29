@@ -1,142 +1,120 @@
-
 // C >> Create  >> Cadastrar
-// R   >> Read   >> Ler
-// U   >>  Update  >> alterar/atualizar/editar/fuçar/mudar
-// D   >>  Delete  >> Apagar/deletar/excluir
+// R >> Read    >> Ler
+// U >> Update  >> Alterar/atualizar/editar
+// D >> Delete  >> Apagar/deletar/excluir
 
-// ctrl + ;
+let funcionarios = [];
 
-// const nomes = []
-// const alturas = []
+carregarDados();
+mostrarFuncionarios();
 
-
-
-
-// console.log(dino);
-
-let funcionarios = []
-
-function salvarDados(){
-    localStorage.setItem('funcionarios', JSON.stringify(funcionarios))
-    
-    // let texto = JSON.stringify(dinos)
-    // localStorage.setItem('dinos', texto)
+function salvarDados() {
+    localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
 }
 
-function carregarDados(){
-    funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || []
-    
-    // let textoLido = localStorage.getItem('dinos')
-    // dinos = JSON.parse(textoLido)
+function carregarDados() {
+    funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
 }
 
-function cadastrarfuncionario() {
+function cadastrarFuncionario() {
+    let nome = document.getElementById("input-nome").value;
 
-    carregarDados()
-
-    const funcionario = {
-        nome: document.getElementById('input-nome').value,
-        sertor: Number(document.getElementById("input-setor").value),
-        funcao: document.getElementById("input-funcao").value,
-        data: Number(document.getElementById("input-data").value),
-        validade: Number(document.getElementById('input-validade').value),
-    }
-  
-
-    console.log(funcionario);
-
-    limparFormulario()
-    mostrarTodos()
-
-    salvarDados()
-}
-
-function limparformulario() {
-    document.getElementById('input-nome').value = ''
-    document.getElementById('input-setor').value = ''
-    document.getElementById('input-funcao').value = ''
-    document.getElementById('input-data').value = ''
-    
-
-    document.getElementById('input-nome').focus()
-}
-
-function mostrarformulario(){
-    document.getElementById('painel-funcionario').innerHTML = '' 
-
-    for(let i=0; i<segurancadotrabalho.length; i++){
-        // alert(dinos[i].nome)
-        document.getElementById('painel-funcionario').innerHTML += 
-        `<div class="card-dino">
-            <h2>${funcionario[i].nome}</h2>
-            <p>nome: ${funcionario[i].setor}</p>
-            <p>validade:${funçao$funcionario[i].funçao}</p>
-            <p>:validade ${funcionario[i].validade}</p>
-            <p>${funcionario[i].id}</p>
-        </div>` 
+    if (!nome) {
+        return;
     }
 
-}
+    let index = funcionarios.findIndex(f => f.nome.toLowerCase() === nome.toLowerCase());
 
-function salvarfuncionario() {
-    
-    // window.location.href = 'teste.html'
+    if (index !== -1) {
+        funcionarios[index].setor = document.getElementById("input-setor").value;
+        funcionarios[index].funcao = document.getElementById("input-funcao").value;
+        funcionarios[index].data = document.getElementById("input-data").value;
+        funcionarios[index].validade = document.getElementById("input-validade").value;
+    } else {
+        let funcionario = {
+            id: Date.now(),
+            nome: nome,
+            setor: document.getElementById("input-setor").value,
+            funcao: document.getElementById("input-funcao").value,
+            data: document.getElementById("input-data").value,
+            validade: document.getElementById("input-validade").value
+        };
 
-    carregarDados()
-
-
-
- 
-    console.log(funcionario);
-
-}
-
-function segurancadotrabalho(){
-    let nomeProcurado = document.getElementById('input-nome').value
-
-    for(let i = 0; i<segurancadotrabalho.length; i++){
-        if(nomeProcurado == segurancadotrabalho[i].nome ){
-            console.log(segurancadotrabalho[i]);
-            document.getElementById('input-nome').value = funcionario[i].nome
-            document.getElementById('input-setor').value = funcionario[i].setor
-            document.getElementById('input-funcao').value = funcionario[i].funçao
-            document.getElementById('input-validade').value = funcionario[i].validade
-            console.log(i);
-        }
-        
+        funcionarios.push(funcionario);
     }
 
+    salvarDados();
+    mostrarFuncionarios();
+    limparFormulario();
 }
 
-function salvarfuncionario(){
-    let id = Number(document.getElementById('input-nome').value)
+function mostrarFuncionarios() {
+    let painel = document.getElementById("painel-funcionario");
+    if (!painel) return;
 
-    for (let i = 0; i< mostrarfuncionario.length; i++)
-    {
-        if(id == mostrarfuncionario[i].nome ){
-          console.log(segurancadotrabalho[i]);
-            document.getElementById('input-nome').value = funcionario[i].nome
-            document.getElementById('input-setor').value = funcionario[i].setor
-            document.getElementById('input-funcao').value = funcionario[i].funçao
-            document.getElementById('input-validade').value = funcionario[i].validade
-            console.log(i);
+    painel.innerHTML = "";
+
+    for (let i = 0; i < funcionarios.length; i++) {
+        painel.innerHTML += `
+        <div style="border:1px solid #000; margin:10px; padding:10px;">
+            <h3>${funcionarios[i].nome}</h3>
+            <p><b>Setor:</b> ${funcionarios[i].setor}</p>
+            <p><b>Função:</b> ${funcionarios[i].funcao}</p>
+            <p><b>Data:</b> ${funcionarios[i].data}</p>
+            <p><b>Validade:</b> ${funcionarios[i].validade}</p>
+        </div>
+        `;
+    }
+}
+
+function procurarFuncionario() {
+    let nome = document.getElementById("input-nome").value;
+
+    for (let i = 0; i < funcionarios.length; i++) {
+        if (funcionarios[i].nome.toLowerCase() === nome.toLowerCase()) {
+            document.getElementById("input-setor").value = funcionarios[i].setor;
+            document.getElementById("input-funcao").value = funcionarios[i].funcao;
+            document.getElementById("input-data").value = funcionarios[i].data;
+            document.getElementById("input-validade").value = funcionarios[i].validade;
+
+            return;
         }
     }
-    
-    mostrarformulario()
-    limparformulario()
-
 }
-function excluirfuncionario(){
-    let id = Number(document.getElementById('input-validade').value)
 
-    for(let i = 0; i<dinos.length; i++){
-        if(id == funcionario[i].id ){
-            console.log(funcionario[i]);
-            funcionario.splice(i, 1)
-            console.log(i);
+function excluirFuncionario() {
+    let nome = document.getElementById("input-nome").value;
+
+    for (let i = 0; i < funcionarios.length; i++) {
+        if (funcionarios[i].nome.toLowerCase() === nome.toLowerCase()) {
+            funcionarios.splice(i, 1);
+            salvarDados();
+            mostrarFuncionarios();
+            limparFormulario();
+            return;
         }
     }
-    mostrarformulario()
-    limparformulario()
+}
+
+function limparFormulario() {
+    document.getElementById("input-nome").value = "";
+    document.getElementById("input-setor").value = "";
+    document.getElementById("input-funcao").value = "";
+    document.getElementById("input-data").value = "";
+    document.getElementById("input-validade").value = "";
+
+    document.getElementById("input-nome").focus();
+}
+
+function gerarDadosDeTeste() {
+    funcionarios = [
+        { id: 1, nome: "Carlos Silva", setor: "Obras", funcao: "Pedreiro", data: "2024-01-15", validade: "12 meses" },
+        { id: 2, nome: "Ana Souza", setor: "Elétrica", funcao: "Eletricista", data: "2024-02-10", validade: "6 meses" },
+        { id: 3, nome: "Roberto Lima", setor: "Manutenção", funcao: "Mecânico", data: "2024-03-01", validade: "12 meses" },
+        { id: 4, nome: "Mariana Costa", setor: "Segurança", funcao: "Técnica de SST", data: "2024-01-20", validade: "24 meses" },
+        { id: 5, nome: "João Pedro", setor: "Logística", funcao: "Op. de Empilhadeira", data: "2024-04-05", validade: "12 meses" }
+    ];
+
+    salvarDados();
+    mostrarFuncionarios();
 }
